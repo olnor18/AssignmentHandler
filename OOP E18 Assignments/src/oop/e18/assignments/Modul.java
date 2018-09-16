@@ -21,9 +21,15 @@ public class Modul {
     }
     
     //A costom method for printing out a line (it's rather useless)
+    /**
+     * 
+     * @param string use as printf
+     */
     public static void print(String string)
     {
         System.out.printf(string+"%n");
     }
     
+    
+  
 }

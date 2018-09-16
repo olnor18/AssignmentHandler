@@ -237,7 +237,7 @@ public class Modul003 extends Modul {
                     print("---------------");
 
                     //Announce assignment
-                    print("Find the temperature differences between two days!");
+                    print("Find the amount of days in a given month!");
                     //Declaring and assigning variables
                     int daysInMonths[] =
                     {
@@ -309,13 +309,14 @@ public class Modul003 extends Modul {
                     break;
 
                 case "STOP":
-                case "exit":
+                case "EXIT":
                     active = false;
                     break;
 
                 default:
                     print("Invalid program. Type 'help' to see availible programs.");
                     break;
+                    
             }
         }    
     }
