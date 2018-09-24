@@ -241,7 +241,8 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                     {1, 2, 3, 1, 2, 3, 1, 2, 3},
                     {4, 5, 6, 4, 5, 6, 4, 5, 6},
                     {7, 8, 9, 7, 8, 9, 7, 8, 9},};
-                    print("The suduki is " + (sudokuIsCorrect(sudoku) ? "not " : "") + "correct");
+                    print("The suduki is " + (sudokuIsCorrect(sudoku) ? "" : "not ") + "correct");
+                   
                     break;
                    
                 //A command for listing all assignments in the module
@@ -427,7 +428,7 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                 {
                     for (int j = y; j < y+3; j++)
                     {
-                        sudokuSubgrid[sudoku[i][j]] = true;
+                        sudokuSubgrid[sudoku[i][j]-1] = true;
                     }
                 }
                 
