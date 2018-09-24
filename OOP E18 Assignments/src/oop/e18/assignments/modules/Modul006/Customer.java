@@ -17,8 +17,11 @@ public class Customer
 
     public Customer(String name, int id)
     {
+        /*this.name means that i can differentiate
+        between the string declared in this class 
+        and the string that is given as an argument*/
         this.name = name;
-        if (id <= 999)
+        if (id <= 999) //Maxing the id range out at 999
         {
             this.id = id;
         }
@@ -28,7 +31,7 @@ public class Customer
     public Customer(String name, int id, double balance)
     {
         this.name = name;
-        if (id <= 999)
+        if (id <= 999) //Maxing the id range out at 999
         {
             this.id = id;
         }
