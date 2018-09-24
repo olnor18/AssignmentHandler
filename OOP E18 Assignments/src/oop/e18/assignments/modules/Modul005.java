@@ -7,6 +7,8 @@ package oop.e18.assignments.modules;
 
 import java.text.DecimalFormat;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import oop.e18.assignments.Modul;
 import static oop.e18.assignments.Modul.active;
 import static oop.e18.assignments.Modul.print;
@@ -129,6 +131,118 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                     
                     print(convertMillis(millis));
                     break;
+                                   
+                case "6.28":
+                    print("6.28");
+                    print("---------------");
+                    
+                    print("Finding all mersenne primes with p <= 31");
+                    
+                    System.out.println("p         2^p - 1");
+                    System.out.println("-----------------------");
+                    for (int i = 2; i <= 31; i++) 
+                    {
+                        if (isPrime(i) && isPrime(getMersennePrime(i))) 
+                        {      
+                            System.out.printf("%-9d %-5d %n", i, getMersennePrime(i));
+                        }
+                    }
+                    break;
+                    
+                case "D.2":
+                    print("D.2");
+                    print("---------------");
+                    print("The sum of the circumference of two circles with radius 3 and 7 is " + f.format(circleCircumference(3)+circleCircumference(7)));
+                    break;
+                    
+                case "D.5":
+                    print("D.5");
+                    print("---------------");
+                    init();
+                    break;
+                    
+                case "D.7":
+                    print("D.7");
+                    print("---------------");
+
+                    //Announce assignment
+                    print("Game of life");
+                    int[][] seed = {
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},};
+
+                    int[][] buffer = new int[seed.length][seed[0].length];
+
+                    //GameLoop
+                    boolean running = true;
+                    int itterations = 0;
+                    while (running) {
+
+                        arrayCopy(seed, buffer);
+
+                        for (int x = 0; x < seed.length; x++) {
+                            for (int y = 0; y < seed[x].length; y++) {
+                                int population = population(x,y,seed);
+                                updateGame(x, y, population, buffer);
+                            }
+                        }
+
+                        for (int i = 0; i < buffer.length; i++) {
+                            for (int j = 0; j < buffer[i].length; j++) {
+                                System.out.printf(buffer[i][j] + " ");
+                            }
+
+                            System.out.printf("%n");
+                        }
+
+                        System.out.printf("%n");
+
+                        if (itterations == 10) {
+                            running = false;
+                        } else {
+                            itterations++;
+                        }
+
+                        arrayCopy(buffer, seed);
+
+                        try {
+                            Thread.sleep(2000);
+                        } catch (InterruptedException ex) {
+                            Logger.getLogger(Modul004.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    }
+                    break;
+                    
+                case "D.8":
+                    print("D.8");
+                    print("---------------");
+                    int[][] sudoku = {
+                    {1, 2, 3, 1, 2, 3, 1, 2, 3},
+                    {4, 5, 6, 4, 5, 6, 4, 5, 6},
+                    {7, 8, 9, 7, 8, 9, 7, 8, 9},
+                    {1, 2, 3, 1, 2, 3, 1, 2, 3},
+                    {4, 5, 6, 4, 5, 6, 4, 5, 6},
+                    {7, 8, 9, 7, 8, 9, 7, 8, 9},
+                    {1, 2, 3, 1, 2, 3, 1, 2, 3},
+                    {4, 5, 6, 4, 5, 6, 4, 5, 6},
+                    {7, 8, 9, 7, 8, 9, 7, 8, 9},};
+                    print("The suduki is " + (sudokuIsCorrect(sudoku) ? "not " : "") + "correct");
+                    break;
                    
                 //A command for listing all assignments in the module
                 case "HELP":
@@ -136,7 +250,7 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                     {
                         print(assigments[i]);
                     }
-                    break;
+                    break;    
                 
                 //Stops the while-loop and returning to the assignment-picker
                 case "STOP":
@@ -248,4 +362,116 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //6.28
+    public static int getMersennePrime(int prime) {
+        return (int) Math.pow(2, prime) - 1;
+    }
+    
+    //D.2
+    public static double circleCircumference (double radius)
+    {
+        double circumference = Math.PI*2*radius;
+        return circumference;
+    }
+    
+    //D.5
+    public static void init()
+    {
+        for(int i = 100; i <=200; i++)
+        {
+            System.out.println(i + " is " + (!isPrime(i) ? "not " : "") + "a prime number.");
+        }
+    }
+    
+    //D.7
+    public static int population(int x, int y, int[][] array)
+    {
+        int population = 0;
+        for (int i = -1 + x; i <= x + 1; i++) 
+        {
+            for (int j = -1 + y; j <= y + 1; j++) {
+                if (i >= 0 && j >= 0 && i < array.length && j < array[x].length && array[i][j] == 1) {
+                    if (i != x || j != y) {
+                        population++;
+                    }
+                }
+            }
+        }
+        return population;
+    }
+    
+    public static void updateGame(int x, int y, int population, int[][] array)
+    {
+        if (array[x][y] == 1) 
+        {
+            if (population < 2 || population > 3) 
+            {
+                array[x][y] = 0;
+            }
+        } 
+        else if (array[x][y] == 0 && population == 3) 
+        {
+            array[x][y] = 1;
+        }
+    }
+    
+    //D.8
+    public static boolean sudokuIsCorrect (int[][] sudoku)
+    {
+        boolean output = true;
+        for(int x = 0; x < 6; x+=3)
+        {
+            for(int y = 0; y < 6; y+=3)
+            {
+                boolean[] sudokuSubgrid = new boolean[9];
+                for(int i = x; i < x+3; i++)
+                {
+                    for (int j = y; j < y+3; j++)
+                    {
+                        sudokuSubgrid[sudoku[i][j]] = true;
+                    }
+                }
+                
+                for (int i = 0; i < sudokuSubgrid.length; i++)
+                {
+                    if(sudokuSubgrid[i] == false)
+                    {
+                        output = false;
+                    }
+                }
+                
+            }
+        }
+        return output;
+    }
+    
+    //ETC
+    public static boolean isPrime(double p)
+    {
+        boolean output = false;
+              
+        //Check if prime
+        boolean notPrime = false;
+        for (int in = 2; in < Math.sqrt(p); in++)
+        {
+            if (p % in == 0)
+            {
+                notPrime = true;
+                break;
+            }
+        }
+        if (!notPrime)
+        {
+            output = true;
+        }
+    
+        return output;
+    }
+    
+    public static void arrayCopy(int[][] sourceArray, int[][] targetArray)
+    {
+        for (int i = 0; i < sourceArray.length; i++) 
+        {
+            System.arraycopy(sourceArray[i], 0, targetArray[i], 0, sourceArray[i].length);
+        }
+    }
 }
