@@ -53,6 +53,7 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
             //Initialise program
             switch (programName.toUpperCase()) //'.toUpperCase()' allow for avoiding casesensitivity
             {
+                //<editor-fold defaultstate="collapsed" desc="6.2">
                 case "6.2":
                     print("6.2");
                     print("---------------");
@@ -68,7 +69,8 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                     print("The multiplication of all digits in " + number + " is " + total);
                     
                     break;
-                    
+                //</editor-fold>    
+                //<editor-fold defaultstate="collapsed" desc="6.3">
                 case "6.3":
                     print("6.3");
                     print("---------------");
@@ -88,7 +90,8 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                         print("The number " + n + " is not a palindrome: " + reverse(n));
                     }
                     break;
-                    
+                //</editor-fold>  
+                //<editor-fold defaultstate="collapsed" desc="6.8">    
                 case "6.8":
                     print("6.8");
                     print("---------------");
@@ -103,7 +106,8 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                         km += 5;
                     }
                     break;
-                    
+                //</editor-fold>
+                //<editor-fold defaultstate="collapsed" desc="6.22">    
                 case "6.22":
                     print("6.22");
                     print("---------------");
@@ -118,7 +122,8 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                     
                     print("The square root of " + n622 + " is " + f.format(sqrt(n622,t)));
                     break;
-                
+                //</editor-fold>
+                //<editor-fold defaultstate="collapsed" desc="6.25">    
                 case "6.25":
                     print("6.25");
                     print("---------------");
@@ -131,7 +136,8 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                     
                     print(convertMillis(millis));
                     break;
-                                   
+                //</editor-fold>
+                //<editor-fold defaultstate="collapsed" desc="6.28">    
                 case "6.28":
                     print("6.28");
                     print("---------------");
@@ -148,19 +154,22 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                         }
                     }
                     break;
-                    
+                //</editor-fold>
+                //<editor-fold defaultstate="collapsed" desc="D.2">    
                 case "D.2":
                     print("D.2");
                     print("---------------");
                     print("The sum of the circumference of two circles with radius 3 and 7 is " + f.format(circleCircumference(3)+circleCircumference(7)));
                     break;
-                    
+                //</editor-fold>
+                //<editor-fold defaultstate="collapsed" desc="D.5">    
                 case "D.5":
                     print("D.5");
                     print("---------------");
                     init();
                     break;
-                    
+                //</editor-fold>
+                //<editor-fold defaultstate="collapsed" desc="D.7">    
                 case "D.7":
                     print("D.7");
                     print("---------------");
@@ -224,15 +233,17 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                         } catch (InterruptedException ex) {
                             Logger.getLogger(Modul004.class.getName()).log(Level.SEVERE, null, ex);
                         }
+                        
 
                     }
                     break;
-                    
+                //</editor-fold>
+                //<editor-fold defaultstate="collapsed" desc="D.8">    
                 case "D.8":
                     print("D.8");
                     print("---------------");
                     int[][] sudoku = {
-                    {1, 2, 3, 1, 2, 3, 1, 2, 3},
+                    {1 , 2, 3, 1, 2, 3, 1, 2, 3},
                     {4, 5, 6, 4, 5, 6, 4, 5, 6},
                     {7, 8, 9, 7, 8, 9, 7, 8, 9},
                     {1, 2, 3, 1, 2, 3, 1, 2, 3},
@@ -242,20 +253,19 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
                     {4, 5, 6, 4, 5, 6, 4, 5, 6},
                     {7, 8, 9, 7, 8, 9, 7, 8, 9},};
                     print("The suduki is " + (sudokuIsCorrect(sudoku) ? "" : "not ") + "correct");
-                   
                     break;
-                   
+                    //</editor-fold>
                 //A command for listing all assignments in the module
                 case "HELP":
-                    for (int i = 0; i < assigments.length; i++)
-                    {
-                        print(assigments[i]);
-                    }
-                    break;    
+                for (String assigment : assigments) 
+                {
+                print(assigment);
+                }
+                break;        
                 
                 //Stops the while-loop and returning to the assignment-picker
                 case "STOP":
-                case "exit":
+                case "EXIT":
                     active = false;
                     break;
                 
@@ -272,6 +282,11 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
      */
     
     //6.2
+    /**
+     * Calculates the sum of all the digits in a number
+     * @param n     The long which digits will be summed
+     * @return      The sum of the digits in the given Long in the type of int
+     */
     public static int sumDigits(long n)
     {
         int output = 0;
@@ -285,6 +300,11 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //6.3
+    /**
+     * Reverses a given number
+     * @param number    The int which digits will be reversed
+     * @return          The the reversed int
+     */
     public static int reverse(int number)
     {
         int output = 0;
@@ -305,6 +325,11 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
         return output;
     }
     
+    /**
+     * Checks if a number is a palindrome 
+     * @param number    The number which will be checked if it is a palindrome
+     * @return          A boolean depending on whether if it is a palindrome
+     */
     public static boolean isPalindrome(int number)
     {
         boolean output = false;
@@ -316,12 +341,22 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //6.8
+    /**
+     * Converts miles to kilometers
+     * @param mile      A double representing the amount of miles to be converted
+     * @return          A double with the miles converted to kilometers
+     */
     public static double mileToKilometer(double mile)
     {
         double output = mile * 1.6;
         return output;
     }
-
+    
+    /**
+     * Converts kilometers to miles
+     * @param kilometer A double representing the amount of kilometers to be converted
+     * @return          A double with the kilometers converted to miles
+     */
     public static double kilometerToMile(double kilometer)
     {
         double output = kilometer / 1.6;
@@ -329,6 +364,12 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //6.22
+    /**
+     * Calculates a square root of a number with a given tolerance
+     * @param n     The number which square root is to be found
+     * @param t     The tolerance of how close to the actual square root the result has to be
+     * @return      The square root of the given number
+     */
     public static double sqrt(long n, double t)
     {
         double output = 0;
@@ -352,6 +393,11 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //6.25
+    /**
+     * milliseconds converted into the format 'hours:minutes:seconds'
+     * @param millis    An amount of milliseconds
+     * @return          The amount of milliseconds converted into the format 'hours:minutes:seconds'
+     */
     public static String convertMillis(long millis)
     {
         long hours = millis / 3600000;
@@ -363,11 +409,21 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //6.28
+    /**
+     * Returns Mersenne prime of the format 2^p-1
+     * @param prime     A prime, p
+     * @return          A possible Mersenne prime of the format 2^p-1
+     */
     public static int getMersennePrime(int prime) {
         return (int) Math.pow(2, prime) - 1;
     }
     
     //D.2
+    /**
+     * Calculates the circumference of the circle with the given radius
+     * @param radius    The radius of a circle
+     * @return          The circumference of the circle with the given radius
+     */
     public static double circleCircumference (double radius)
     {
         double circumference = Math.PI*2*radius;
@@ -375,6 +431,9 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //D.5
+    /**
+     * A method that runs the task
+     */
     public static void init()
     {
         for(int i = 100; i <=200; i++)
@@ -384,6 +443,13 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //D.7
+    /**
+     * This gets the amount of neighbours that are alive
+     * @param x     The x-coordinate of the cell which neighbours is checked
+     * @param y     The y-coordinate of the cell which neighbours is checked
+     * @param array The array of the cells
+     * @return      The amount of neighbours that are alive
+     */
     public static int population(int x, int y, int[][] array)
     {
         int population = 0;
@@ -400,6 +466,13 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
         return population;
     }
     
+    /**
+     * This is updates the cell-array by the rules of the game
+     * @param x     The x-coordinate of the cell which neighbours is checked
+     * @param y     The y-coordinate of the cell which neighbours is checked
+     * @param population        The amount of neighbours that are alive
+     * @param array The array of the cells
+     */
     public static void updateGame(int x, int y, int population, int[][] array)
     {
         if (array[x][y] == 1) 
@@ -416,6 +489,11 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //D.8
+    /**
+     * Check if a sudoku is correctly filled-out
+     * @param sudoku    A sudoku in the form of a two-dimension int array
+     * @return          A boolean depending on whether it is a correctly filled-out sudoku
+     */
     public static boolean sudokuIsCorrect (int[][] sudoku)
     {
         boolean output = true;
@@ -446,7 +524,12 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
     }
     
     //ETC
-    public static boolean isPrime(double p)
+    /**
+     * Check if a positive integer is a prime
+     * @param p A positive integer
+     * @return  A boolean depending on whether it is a prime
+     */
+    public static boolean isPrime(int p)
     {
         boolean output = false;
               
@@ -468,6 +551,11 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
         return output;
     }
     
+    /**
+     * Copy an array into another
+     * @param sourceArray   The source array, from which the data gets copied
+     * @param targetArray   The target array, to which the data gets copied
+     */
     public static void arrayCopy(int[][] sourceArray, int[][] targetArray)
     {
         for (int i = 0; i < sourceArray.length; i++) 
