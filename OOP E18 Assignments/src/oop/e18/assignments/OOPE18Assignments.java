@@ -5,7 +5,6 @@
  */
 package oop.e18.assignments;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 import static oop.e18.assignments.Modul.print;
 import oop.e18.assignments.modules.*;
@@ -25,6 +24,7 @@ public class OOPE18Assignments {
            new Modul002(false),
            new Modul003(false),
            new Modul004(false),
+           new Modul005(false),
            new Modul0XX(false), //XX is a placeholder class
            //Add any new assignments here - beware: the has to be a class made for the module - use Modul0XX as a template
        };
@@ -34,7 +34,7 @@ public class OOPE18Assignments {
         String moduleNames[]
                 = {
                     //Rembember to add any new module to this array, as this is the array that is used for the 'help' option further down
-                    "002", "003", "004", "0XX"                                 
+                    "002", "003", "004", "005", "0XX"                                 
                 };
         //Running is a boolean that allows to end the following while-loop
         boolean running = true;
@@ -68,11 +68,16 @@ public class OOPE18Assignments {
                     modules[2].active = true;
                     Modul004.run();
                     break;    
-                    
+                
+                case "005":
+                    modules[3].active = true; 
+                    Modul005.run();
+                    break;    
+                
                 case "0XX":
                     //Remember to count the array up for each new module - fx. the next module would be 'modules[3].active = true;'
-                    modules[3].active = true; 
-                    Modul0XX.run();
+                    //modules[3].active = true; 
+                    //Modul0XX.run();
                     break;
                 
                 //Stops the while-loop    
