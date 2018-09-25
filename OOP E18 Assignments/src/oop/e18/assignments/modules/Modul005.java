@@ -30,7 +30,7 @@ public class Modul005 extends Modul //The 'extends Modul' means that it is a chi
         //The array which is used for listing the assignments by the 'help' command
         String assigments[] =
         {
-            "6.2", "6.3",
+            "6.2", "6.3", "6.8", "6.22", "6.25", "6.28", "D.2", "D.5", "D.7", "D.8"
         };
         
 
