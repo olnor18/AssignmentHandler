@@ -5,10 +5,12 @@
  */
 package oop.e18.assignments;
 
+import oop.e18.assignments.modules.Modul008.Modul008;
 import java.util.Scanner;
 import static oop.e18.assignments.Modul.print;
 import oop.e18.assignments.modules.*;
 import oop.e18.assignments.modules.Modul006.Modul006;
+import oop.e18.assignments.modules.Modul008.Modul008;
 
 /**
  *
@@ -27,12 +29,13 @@ public class OOPE18Assignments {
            new Modul004(false),
            new Modul005(false),
            new Modul006(false),
+           new Modul008(false),
            new Modul0XX(false), //XX is a placeholder class
            //Add any new assignments here - beware: the has to be a class made for the module - use Modul0XX as a template
        };
 
         
-
+        
         String moduleNames[]
                 = {
                     //Rembember to add any new module to this array, as this is the array that is used for the 'help' option further down
@@ -79,8 +82,13 @@ public class OOPE18Assignments {
                 case "006":
                     modules[4].active = true; 
                     Modul006.run();
-                    break; 
-                
+                    break;
+                    
+                case "008":
+                    modules[5].active = true; 
+                    Modul008.run();
+                    break;
+                    
                 case "0XX":
                     //Remember to count the array up for each new module - fx. the next module would be 'modules[3].active = true;'
                     //modules[3].active = true; 
